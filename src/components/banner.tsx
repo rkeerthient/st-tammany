@@ -56,8 +56,8 @@ const Banner = ({ type, direction }: BannerProps) => {
   return (
     <section className="flex flex-col ">
       {direction === "LTR" ? (
-        <section className={`flex flex-col md:flex-row h-96`}>
-          <article className="w-full flex flex-col md:w-1/3 border  p-6 gap-6 bg-[#94579a] text-white">
+        <section className={`flex flex-col md:flex-row md:h-96`}>
+          <article className="w-full flex flex-col md:w-1/3 border p-2 md:p-6 gap-6 bg-[#94579a] text-white">
             <p className="text-4xl ">{name}</p>
             <HoursStatus hours={hours} timezone={timezone} />
           </article>
@@ -66,12 +66,12 @@ const Banner = ({ type, direction }: BannerProps) => {
           </article>
         </section>
       ) : (
-        <section className={`flex flex-col md:flex-row h-96`}>
+        <section className={`flex flex-col md:flex-row md:h-96`}>
           <article className="w-full flex flex-col md:w-1/3 border">
             <Image image={photo} className="h-full w-full object-cover" />
           </article>
           <article
-            className={`w-full md:w-2/3 border h-full   bg-[#94579a]  px-16 py-4  text-white`}
+            className={`w-full md:w-2/3 border h-full   bg-[#94579a] p-8  md:px-16 md:py-4  text-white`}
           >
             <div className="flex flex-col gap-1">
               <p className=" text-4xl ">{name}</p>

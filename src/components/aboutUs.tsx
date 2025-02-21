@@ -21,11 +21,11 @@ const AboutUs = ({
 }: AboutUsProps) => {
   return (
     <section className="w-full flex flex-col md:flex-row justify-between gap-8">
-      <div className="space-y-4 w-1/2 text-[#58595b]">
+      <div className="space-y-4 w-full md:w-1/2 text-[#58595b]">
         <h3 className="text-[#702082] text-2xl">{title}</h3>
         <p className="text-lg">{description}</p>
       </div>
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         {coordinates ? (
           <StaticMap
             latitude={coordinates.latitude}
