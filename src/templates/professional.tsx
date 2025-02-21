@@ -39,6 +39,7 @@ export const config: TemplateConfig = {
       "educationList",
       "c_professionalReviews",
       "services",
+      "timezone",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -130,6 +131,7 @@ const Professional: Template<TemplateRenderProps> = ({
     educationList,
     c_professionalReviews,
     services,
+    timezone,
   } = document;
 
   return (
@@ -147,6 +149,7 @@ const Professional: Template<TemplateRenderProps> = ({
             reviewsAverage: c_professionalReviews.aggregate,
             showCTAs: true,
             services,
+            timezone,
           }}
         />
         {/* <Insurance

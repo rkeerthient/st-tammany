@@ -25,6 +25,7 @@ interface BannerProp {
   fax?: string;
   showCTAs?: boolean;
   services?: string[];
+  timezone: string;
 }
 
 interface BannerProps {
@@ -45,14 +46,15 @@ const Banner = ({ type, direction }: BannerProps) => {
     mainPhone,
     showCTAs = false,
     services,
+    timezone,
   } = type;
   return (
     <section className="flex flex-col ">
       {direction === "LTR" ? (
         <section className={`flex flex-col md:flex-row h-96`}>
-          <article className="w-full flex flex-col md:w-1/3 border text-4xl p-6 gap-6 bg-[#94579a] text-white">
-            <p>{name}</p>
-            <HoursStatus hours={hours} timezone={""} />
+          <article className="w-full flex flex-col md:w-1/3 border  p-6 gap-6 bg-[#94579a] text-white">
+            <p className="text-4xl">{name}</p>
+            <HoursStatus hours={hours} timezone={timezone} />
           </article>
           <article className="w-full md:w-2/3 border h-full">
             <Image image={photo} className="h-full w-full object-cover" />
@@ -68,7 +70,7 @@ const Banner = ({ type, direction }: BannerProps) => {
           >
             <div className="flex flex-col gap-1">
               <p className=" text-4xl ">{name}</p>
-              <HoursStatus hours={hours} timezone={""} />
+              <HoursStatus hours={hours} timezone={timezone} />
               <div>
                 <StarRating selectedStars={5} />
               </div>

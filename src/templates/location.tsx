@@ -38,6 +38,7 @@ export const config: TemplateConfig = {
       "c_externalResources",
       "c_locationServices",
       "geocodedCoordinate",
+      "timezone",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -128,6 +129,7 @@ const Location: Template<TemplateRenderProps> = ({
     c_locationServices,
     c_externalResources,
     description,
+    timezone,
   } = document;
 
   return (
@@ -141,6 +143,7 @@ const Location: Template<TemplateRenderProps> = ({
             hours: hours,
             address,
             mainPhone,
+            timezone,
           }}
         />
         <Insurance
