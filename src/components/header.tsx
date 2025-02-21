@@ -1,8 +1,8 @@
-import img1 from "../assets/header.png";
-const Header = () => {
+import { Image } from "@yext/pages-components";
+const Header = ({ _site }: any) => {
   return (
     <>
-      <img src={img1} alt="" />
+      <Image image={_site.c_headeer} />
     </>
   );
 };

@@ -10,8 +10,6 @@ type Props = {
 //   botId: import.meta.env.YEXT_PUBLIC_CHAT_BOTID,
 // };
 const PageLayout = ({ _site, children }: Props) => {
-  const [showChat, setShowChat] = useState(false);
-
   return (
     <div className="min-h-screen">
       <Header _site={_site} />

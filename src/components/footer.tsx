@@ -1,6 +1,6 @@
-import img1 from "../assets/footer.png";
-const Footer = () => {
-  return <img src={img1} alt="" />;
+import { Image } from "@yext/pages-components";
+const Footer = ({ _site }: any) => {
+  return <Image image={_site.c_footer} />;
 };
 
 export default Footer;

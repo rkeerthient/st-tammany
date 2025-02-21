@@ -143,7 +143,7 @@ const Location: Template<TemplateRenderProps> = ({
   } = document;
 
   return (
-    <PageLayout>
+    <PageLayout _site={_site}>
       <main id="main" className="centered-container space-y-12">
         <BreadCrumbs data={address} currAddress={address.line1} />
         <Banner
