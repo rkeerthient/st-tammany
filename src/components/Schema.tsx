@@ -1,7 +1,5 @@
-
 import { JsonLd } from "react-schemaorg";
-import { ClothingStore, FAQPage, Place, ItemList } from "schema-dts";
-import Product from "../types/products";
+import { ClothingStore, FAQPage, Place, ItemList, Hospital } from "schema-dts";
 const Schema = (props: any) => {
   const { document } = props;
   const name = `${document.name} in ${document.address.city}, ${document.address.region}`;
@@ -22,46 +20,24 @@ const Schema = (props: any) => {
       });
     });
   }
-
-  if (document.c_entityCollection) {
-    document.c_entityCollection.forEach((item1: any, index: any) => {
-      item1.c_products.forEach((item: Product, index: any) => {
-        console.log(JSON.stringify(item));
-
-        productsList.push({
-          "@type": "ListItem",
-          position: parseInt(index) + 1,
-          item: {
-            "@type": "Product",
-            name: item.name,
-            image: item.photoGallery && item.photoGallery[0].image.url,
-            category: item.c_category && item.c_category,
-            sku: document.id,
-            aggregateRating: {
-              "@type": "AggregateRating",
-              bestRating: "5",
-              ratingCount: item.c_reviews,
-              ratingValue: item.c_rating,
-            },
-            offers: {
-              "@type": "Offer",
-              availability: "https://schema.org/InStock",
-              price: item.price && item.price.value,
-              priceCurrency: item.price && item.price.currencyCode,
-            },
-          },
-        });
+  if (document.c_locationServices) {
+    document.c_locationServices.forEach((item: any) => {
+      itemListElement.push({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: `${item.name}`,
+        },
       });
     });
   }
-  console.log(JSON.stringify(productsList));
 
   return (
     <>
-      <JsonLd<ClothingStore>
+      <JsonLd<Hospital>
         item={{
           "@context": "https://schema.org",
-          "@type": "ClothingStore",
+          "@type": "Hospital",
           name,
           address: {
             "@type": "PostalAddress",
@@ -78,25 +54,11 @@ const Schema = (props: any) => {
           telephone: telephone,
           hasOfferCatalog: {
             "@type": "OfferCatalog",
-            name: "Store services",
+            name: "Services",
             itemListElement: itemListElement,
           },
         }}
       />
-      <JsonLd<ItemList>
-        item={{
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          itemListElement: productsList,
-        }}
-      />
-      {/*  <JsonLd<FAQPage>
-        item={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqsList,
-        }}
-      /> */}
 
       {document.geocodedCoordinate && (
         <JsonLd<Place>
