@@ -15,6 +15,7 @@ import Insurance from "../components/insurance";
 import AboutUs from "../components/aboutUs";
 import PageLayout from "../components/page-layout";
 import BreadCrumbs from "../components/breadCrumbs";
+import Related from "../components/related";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -40,6 +41,12 @@ export const config: TemplateConfig = {
       "c_locationServices",
       "geocodedCoordinate",
       "timezone",
+      "c_professionalLocation.name",
+      "c_professionalLocation.slug",
+      "c_professionalLocation.id",
+      "c_professionalLocation.headshot",
+      "c_professionalLocation.c_speciality",
+      "fax",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -131,6 +138,8 @@ const Location: Template<TemplateRenderProps> = ({
     c_externalResources,
     description,
     timezone,
+    c_professionalLocation,
+    fax,
   } = document;
 
   return (
@@ -146,6 +155,7 @@ const Location: Template<TemplateRenderProps> = ({
             address,
             mainPhone,
             timezone,
+            fax,
           }}
         />
         <Insurance
@@ -164,7 +174,10 @@ const Location: Template<TemplateRenderProps> = ({
           showBullet={true}
           title={"External Resources"}
         />
-
+        <Related
+          data={c_professionalLocation}
+          title="Providers at the Location"
+        />
         <Insurance
           insurances={insuranceAccepted}
           title={"Insurance Accepted"}

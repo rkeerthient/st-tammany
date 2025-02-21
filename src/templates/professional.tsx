@@ -16,6 +16,7 @@ import AboutUs from "../components/aboutUs";
 import Reviews from "../components/reviews";
 import PageLayout from "../components/page-layout";
 import BreadCrumbs from "../components/breadCrumbs";
+import Related from "../components/related";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -41,6 +42,13 @@ export const config: TemplateConfig = {
       "c_professionalReviews",
       "services",
       "timezone",
+      "c_professionalLocation.name",
+      "c_professionalLocation.slug",
+      "c_professionalLocation.id",
+      "c_professionalLocation.photoGallery",
+      "c_speciality",
+      "c_network",
+      "fax",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -133,6 +141,10 @@ const Professional: Template<TemplateRenderProps> = ({
     c_professionalReviews,
     services,
     timezone,
+    c_professionalLocation,
+    c_speciality,
+    c_network,
+    fax,
   } = document;
 
   return (
@@ -152,6 +164,9 @@ const Professional: Template<TemplateRenderProps> = ({
             showCTAs: true,
             services,
             timezone,
+            speciality: c_speciality,
+            network: c_network,
+            fax,
           }}
         />
         {/* <Insurance
@@ -166,12 +181,15 @@ const Professional: Template<TemplateRenderProps> = ({
           educationList={educationList}
         />
         <Reviews patientExp={c_professionalReviews} name={name} />
+        <Related
+          data={c_professionalLocation}
+          title="Locations of the Provider"
+        />
         {/* <Insurance
         insurances={c_externalResources}
         showBullet={true}
         title={"External Resources"}
       /> */}
-
         <Insurance
           insurances={insuranceAccepted}
           title={"Insurance Accepted"}

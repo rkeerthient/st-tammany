@@ -26,6 +26,8 @@ interface BannerProp {
   showCTAs?: boolean;
   services?: string[];
   timezone: string;
+  speciality?: string;
+  network?: string;
 }
 
 interface BannerProps {
@@ -47,6 +49,9 @@ const Banner = ({ type, direction }: BannerProps) => {
     showCTAs = false,
     services,
     timezone,
+    speciality,
+    network,
+    fax,
   } = type;
   return (
     <section className="flex flex-col ">
@@ -66,10 +71,12 @@ const Banner = ({ type, direction }: BannerProps) => {
             <Image image={photo} className="h-full w-full object-cover" />
           </article>
           <article
-            className={`w-full md:w-2/3 border h-full   bg-[#94579a]  p-16  text-white`}
+            className={`w-full md:w-2/3 border h-full   bg-[#94579a]  px-16 py-4  text-white`}
           >
             <div className="flex flex-col gap-1">
               <p className=" text-4xl ">{name}</p>
+              <p className="text-lg">{network}</p>
+              <p>{speciality}</p>
               <HoursStatus hours={hours} timezone={timezone} />
               <div>
                 <StarRating selectedStars={5} />
@@ -78,11 +85,11 @@ const Banner = ({ type, direction }: BannerProps) => {
               <p>{reviews} reviews</p>
             </div>
             {showCTAs && (
-              <div className="flex flex-col gap-4 mt-8">
-                <div className="cursor-pointer order-2 border-white w-[200px] px-4 rounded-md py-3 flex justify-center text-[#6f2082] bg-white hover:bg-[#6f2082] hover:text-white">
+              <div className="flex flex-col gap-2 mt-8">
+                <div className="cursor-pointer order-2 border-white w-[200px] px-4 rounded-md py-2 flex justify-center text-[#6f2082] bg-white hover:bg-[#6f2082] hover:text-white">
                   Make an Appointment
                 </div>
-                <div className="cursor-pointer border-2 border-white w-[200px] px-4 rounded-md py-3 flex justify-center text-white hover:bg-[#6f2082] hover:text-white">
+                <div className="cursor-pointer border-2 border-white w-[200px] px-4 rounded-md py-2 flex justify-center text-white hover:bg-[#6f2082] hover:text-white">
                   Call me
                 </div>
               </div>
@@ -133,6 +140,7 @@ const Banner = ({ type, direction }: BannerProps) => {
             <div>
               <h3 className="text-lg text-[#702082]">Contact</h3>
               <p>Phone: {formatPhoneNumber(mainPhone)}</p>
+              <p>Fax: {formatPhoneNumber(fax)}</p>
             </div>
           </article>
           <article className="w-full md:w-1/2 p-8">
