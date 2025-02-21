@@ -17,6 +17,7 @@ import Reviews from "../components/reviews";
 import PageLayout from "../components/page-layout";
 import BreadCrumbs from "../components/breadCrumbs";
 import Related from "../components/related";
+import ProfessionalSchema from "../components/professionalSchema";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -126,6 +127,8 @@ const Professional: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
+  const _cpy = document;
+
   const {
     _site,
     name,
@@ -149,6 +152,7 @@ const Professional: Template<TemplateRenderProps> = ({
 
   return (
     <PageLayout _site={_site}>
+      <ProfessionalSchema document={_cpy} />
       <main id="main" className="centered-container space-y-12">
         <BreadCrumbs data={address} currAddress={address.line1} />
         <Banner
