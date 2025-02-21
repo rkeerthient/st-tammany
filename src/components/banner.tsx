@@ -53,7 +53,7 @@ const Banner = ({ type, direction }: BannerProps) => {
       {direction === "LTR" ? (
         <section className={`flex flex-col md:flex-row h-96`}>
           <article className="w-full flex flex-col md:w-1/3 border  p-6 gap-6 bg-[#94579a] text-white">
-            <p className="text-4xl">{name}</p>
+            <p className="text-4xl ">{name}</p>
             <HoursStatus hours={hours} timezone={timezone} />
           </article>
           <article className="w-full md:w-2/3 border h-full">

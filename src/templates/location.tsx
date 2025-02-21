@@ -14,6 +14,7 @@ import Banner from "../components/banner";
 import Insurance from "../components/insurance";
 import AboutUs from "../components/aboutUs";
 import PageLayout from "../components/page-layout";
+import BreadCrumbs from "../components/breadCrumbs";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -135,6 +136,7 @@ const Location: Template<TemplateRenderProps> = ({
   return (
     <PageLayout>
       <main id="main" className="centered-container space-y-12">
+        <BreadCrumbs data={address} currAddress={address.line1} />
         <Banner
           direction="LTR"
           type={{
