@@ -28,8 +28,8 @@ const Reviews = ({ patientExp, name }: REviewsProps) => {
       </p>
       <article className="flex flex-col gap-2">
         {patientExp.reviews.map((item, index) => (
-          <div key={index} className="flex border-b py-2">
-            <div className="w-1/4 flex flex-col">
+          <div key={index} className="flex flex-col md:flex-row border-b py-2">
+            <div className="w-full md:w-1/4 gap-2 md:gap-0 flex flex-row md:flex-col">
               <div className="space-x-0.5">
                 <StarRating selectedStars={item.value} color={"#6f2082"} />
               </div>

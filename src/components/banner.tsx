@@ -66,7 +66,7 @@ const Banner = ({ type, direction }: BannerProps) => {
             ></Image>
             <div className="absolute top-0 left-0 w-full h-full bg-[#6f2082] opacity-85"></div>
             <div className="relative z-10 space-y-4">
-              <p className="text-4xl">{name}</p>
+              <p className="text-2xl md:text-4xl">{name}</p>
               <HoursStatus hours={hours} timezone={timezone} />
             </div>
           </article>
@@ -89,7 +89,7 @@ const Banner = ({ type, direction }: BannerProps) => {
             ></Image>
             <div className="absolute top-0 left-0 w-full h-full bg-[#6f2082] opacity-85"></div>
             <div className=" relative z-10 flex flex-col gap-1">
-              <p className=" text-4xl ">{name}</p>
+              <p className=" text-2xl md:text-4xl ">{name}</p>
               <p className="text-lg">
                 {network} - {speciality}
               </p>
@@ -105,11 +105,11 @@ const Banner = ({ type, direction }: BannerProps) => {
               <p>{reviews} reviews</p>
             </div>
             {showCTAs && (
-              <div className="relative z-10  flex flex-col gap-2 mt-8">
-                <div className="cursor-pointer order-2 border-white w-[200px] px-4 rounded-md py-2 flex justify-center text-[#6f2082] bg-white hover:bg-[#6f2082] hover:text-white">
+              <div className="relative z-10 flex md:flex-col gap-2 mt-8">
+                <div className="text-sm md:text-base cursor-pointer order-2 border-white w-fit md:w-[200px] px-4 rounded-md py-2 flex justify-center text-[#6f2082] bg-white hover:bg-[#6f2082] hover:text-white">
                   Make an Appointment
                 </div>
-                <div className="cursor-pointer border-2 border-white w-[200px] px-4 rounded-md py-2 flex justify-center text-white hover:bg-[#6f2082] hover:text-white">
+                <div className="text-sm md:text-base cursor-pointer border-2 border-white w-fit md:w-[200px] px-4 rounded-md py-2 flex justify-center text-white hover:bg-[#6f2082] hover:text-white">
                   Call me
                 </div>
               </div>
@@ -121,11 +121,11 @@ const Banner = ({ type, direction }: BannerProps) => {
       <section className={`flex flex-col md:flex-row`}>
         {direction === "LTR" ? (
           <article className="w-full flex flex-col md:w-1/3 border p-6 bg-[#f4f3f8] items-center justify-center">
-            <div className="flex flex-col gap-4 m-auto">
-              <div className="cursor-pointer border-2 border-white w-[200px] px-4 rounded-md py-3 flex justify-center  bg-[#6f2082]  text-white hover:opacity-85">
+            <div className="flex md:flex-col gap-4 m-auto">
+              <div className="text-sm md:text-base cursor-pointer border-2 border-white w-fit md:w-[200px] px-4 rounded-md py-3 flex justify-center  bg-[#6f2082]  text-white hover:opacity-85">
                 Make an Appointment
               </div>
-              <div className="cursor-pointer border-2   w-[200px] px-4 rounded-md py-3 flex justify-center border-[#6f2082] text-[#6f2082] hover:bg-[#6f2082] hover:text-white">
+              <div className="text-sm md:text-base cursor-pointer border-2   w-fit md:w-[200px] px-4 rounded-md py-3 flex justify-center border-[#6f2082] text-[#6f2082] hover:bg-[#6f2082] hover:text-white">
                 Get Directions
               </div>
             </div>
@@ -143,7 +143,7 @@ const Banner = ({ type, direction }: BannerProps) => {
           </article>
         )}
         <article className="w-full md:w-2/3 border h-full flex flex-col md:flex-row text-[#5d5d5d]">
-          <article className="w-full md:w-1/2 flex flex-col p-8 gap-8">
+          <article className="w-full md:w-1/2 flex flex-col px-8 py-0 pt-4 md:p-8 gap-8">
             <div className="space-y-3">
               <h3 className="text-lg text-[#702082]">Address</h3>
               <Address
