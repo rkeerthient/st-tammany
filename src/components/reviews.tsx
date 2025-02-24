@@ -30,10 +30,16 @@ const Reviews = ({ patientExp, name }: REviewsProps) => {
         {patientExp.reviews.map((item, index) => (
           <div key={index} className="flex border-b py-2">
             <div className="w-1/4 flex flex-col">
-              <div>
+              <div className="space-x-0.5">
                 <StarRating selectedStars={item.value} color={"#6f2082"} />
               </div>
-              <p>{item.dateCreated}</p>
+              <p>
+                {new Date(item.dateCreated).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </p>
             </div>
             <div className="w-full">
               <p className="text-sm">{item.description}</p>

@@ -53,14 +53,24 @@ const Banner = ({ type, direction }: BannerProps) => {
     network,
     fax,
   } = type;
+  console.log(JSON.stringify(type));
+
   return (
     <section className="flex flex-col ">
       {direction === "LTR" ? (
-        <section className={`flex flex-col md:flex-row md:h-96`}>
-          <article className="w-full flex flex-col md:w-1/3 border p-2 md:p-6 gap-6 bg-[#94579a] text-white">
-            <p className="text-4xl ">{name}</p>
-            <HoursStatus hours={hours} timezone={timezone} />
+        <section className="flex flex-col md:flex-row md:h-96">
+          <article className="relative w-full flex flex-col md:w-1/3 border p-2 md:p-6 gap-6 text-white">
+            <Image
+              image={photo}
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            ></Image>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#6f2082] opacity-85"></div>
+            <div className="relative z-10 space-y-4">
+              <p className="text-4xl">{name}</p>
+              <HoursStatus hours={hours} timezone={timezone} />
+            </div>
           </article>
+
           <article className="w-full md:w-2/3 border h-full">
             <Image image={photo} className="h-full w-full object-cover" />
           </article>
@@ -68,24 +78,34 @@ const Banner = ({ type, direction }: BannerProps) => {
       ) : (
         <section className={`flex flex-col md:flex-row md:h-96`}>
           <article className="w-full flex flex-col md:w-1/3 border">
-            <Image image={photo} className="h-full w-full object-cover" />
+            <Image image={headshot} className="h-full w-full object-cover" />
           </article>
           <article
-            className={`w-full md:w-2/3 border h-full   bg-[#94579a] p-8  md:px-16 md:py-4  text-white`}
+            className={`relative w-full md:w-2/3 border h-full   bg-[#94579a] p-8  md:px-16 md:py-4  text-white`}
           >
-            <div className="flex flex-col gap-1">
+            <Image
+              image={photo}
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            ></Image>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#6f2082] opacity-85"></div>
+            <div className=" relative z-10 flex flex-col gap-1">
               <p className=" text-4xl ">{name}</p>
-              <p className="text-lg">{network}</p>
-              <p>{speciality}</p>
+              <p className="text-lg">
+                {network} - {speciality}
+              </p>
               <HoursStatus hours={hours} timezone={timezone} />
-              <div>
-                <StarRating selectedStars={5} />
+              <div className="flex gap-0.5">
+                <StarRating
+                  selectedStars={5}
+                  color={"#f5b939"}
+                  bigFont={true}
+                />
               </div>
               <p>{reviewsAverage} out of 5</p>
               <p>{reviews} reviews</p>
             </div>
             {showCTAs && (
-              <div className="flex flex-col gap-2 mt-8">
+              <div className="relative z-10  flex flex-col gap-2 mt-8">
                 <div className="cursor-pointer order-2 border-white w-[200px] px-4 rounded-md py-2 flex justify-center text-[#6f2082] bg-white hover:bg-[#6f2082] hover:text-white">
                   Make an Appointment
                 </div>
@@ -101,7 +121,7 @@ const Banner = ({ type, direction }: BannerProps) => {
       <section className={`flex flex-col md:flex-row`}>
         {direction === "LTR" ? (
           <article className="w-full flex flex-col md:w-1/3 border p-6 bg-[#f4f3f8] items-center justify-center">
-            <div className="flex flex-col gap-4 mt-8">
+            <div className="flex flex-col gap-4 m-auto">
               <div className="cursor-pointer border-2 border-white w-[200px] px-4 rounded-md py-3 flex justify-center  bg-[#6f2082]  text-white hover:opacity-85">
                 Make an Appointment
               </div>
@@ -115,7 +135,7 @@ const Banner = ({ type, direction }: BannerProps) => {
             <h3 className="text-lg text-[#702082]">Services</h3>
             <ul className="list-disc">
               {services?.map((item, index) => (
-                <li className="ml-4 py-2 text-black" key={index}>
+                <li className="ml-4 py-2 text-[#58595b]" key={index}>
                   {item}
                 </li>
               ))}

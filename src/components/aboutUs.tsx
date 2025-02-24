@@ -32,15 +32,15 @@ const AboutUs = ({
             longitude={coordinates.longitude}
           />
         ) : (
-          <article className="grid grid-cols-2 gap-4">
+          <article className="grid grid-cols-2 gap-4 text-[#58595b]">
             {educationList.map((item, index) => (
               <div className="bg-[#ededed] p-3 flex flex-col gap-1" key={index}>
-                <p>
+                <p className="font-medium">
                   {item.type === "MEDICAL_SCHOOL"
                     ? `MEDICAL SCHOOL`
                     : item.type}
                 </p>
-                <ul className="list-disc pl-2">
+                <ul className="list-disc pl-4">
                   <li className="text-sm h-32">
                     {item.institutionName}-{item.yearCompleted}
                   </li>

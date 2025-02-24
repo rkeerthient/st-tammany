@@ -153,13 +153,14 @@ const Professional: Template<TemplateRenderProps> = ({
   return (
     <PageLayout _site={_site}>
       <ProfessionalSchema document={_cpy} />
-      <main id="main" className="centered-container space-y-12">
+      <main id="main" className="centered-container space-y-12 text-[#58595b]">
         <BreadCrumbs data={address} currAddress={address.line1} />
         <Banner
           direction="RTL"
           type={{
             name: name,
-            photo: headshot,
+            headshot,
+            photo: c_professionalLocation[0].photoGallery[0],
             hours: hours,
             address,
             mainPhone,
@@ -173,11 +174,7 @@ const Professional: Template<TemplateRenderProps> = ({
             fax,
           }}
         />
-        {/* <Insurance
-        insurances={c_locationServices}
-        showBullet={false}
-        title={"Our Specialty Services"}
-      /> */}
+
         <AboutUs
           title={`About ${name}`}
           description={description}
@@ -189,11 +186,7 @@ const Professional: Template<TemplateRenderProps> = ({
           data={c_professionalLocation}
           title="Locations of the Provider"
         />
-        {/* <Insurance
-        insurances={c_externalResources}
-        showBullet={true}
-        title={"External Resources"}
-      /> */}
+
         <Insurance
           insurances={insuranceAccepted}
           title={"Insurance Accepted"}
